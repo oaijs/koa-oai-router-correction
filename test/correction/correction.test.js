@@ -7,10 +7,10 @@ describe('correction', () => {
   it('enable collectionFormat, should correct success', async () => {
     const { request } = await init({
       apiDoc: './test/correction/api',
-      plugins: {
-        correction: correction(),
-        middleware: middleware(),
-      },
+      plugins: [
+        correction,
+        middleware,
+      ],
       options: {
         middleware: './test/correction/controllers',
       },
@@ -32,10 +32,10 @@ describe('correction', () => {
   it('disable collectionFormat, should not correct', async () => {
     const { request } = await init({
       apiDoc: './test/correction/api',
-      plugins: {
-        correction: correction(),
-        middleware: middleware(),
-      },
+      plugins: [
+        correction,
+        middleware,
+      ],
       options: {
         middleware: './test/correction/controllers',
         correction: {
